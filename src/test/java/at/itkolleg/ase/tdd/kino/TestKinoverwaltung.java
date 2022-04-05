@@ -34,6 +34,7 @@ public class TestKinoverwaltung {
 
         try {
             kvw.einplanenVorstellung(vs);
+            assertTrue(vs instanceof Vorstellung);
         } catch (Exception exception){
             testBool = true;
         }
@@ -66,6 +67,28 @@ public class TestKinoverwaltung {
     @Test
     void testKaufeTicket(){
         assertTrue(kvw.kaufeTicket(vs, 'A', 10, 20) instanceof Ticket);
+    }
+
+    @Test
+    public void testKaufMehrereTicket() throws Exception {
+        Map<Character, Integer> map = new HashMap<>();
+        map.put('A', 11);
+        map.put('B', 12);
+        map.put('A', 13);
+        map.put('Z', 14);
+        ksl = new KinoSaal("Test Saal", map);
+        vs = new Vorstellung(ksl, Zeitfenster.NACHMITTAG, LocalDate.of(2022, Month.DECEMBER, 13),"TestFilm",20);
+
+        List<Ticket> linkedList = new LinkedList<>();
+
+        try{
+            linkedList.add(kvw.kaufeTicket(vs,'A',11,30f));
+            linkedList.add(kvw.kaufeTicket(vs,'B',12,33f));
+            linkedList.add(kvw.kaufeTicket(vs,'A',13,100f));
+            linkedList.add(kvw.kaufeTicket(vs,'Z',14,53f));
+        } catch (Exception e){
+            throw new Exception("Fehler beim Kauf!");
+        }
     }
 
 }
