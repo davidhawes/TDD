@@ -74,18 +74,18 @@ public class TestKinoverwaltung {
         Map<Character, Integer> map = new HashMap<>();
         map.put('A', 11);
         map.put('B', 12);
-        map.put('A', 13);
-        map.put('Z', 14);
+        map.put('C', 13);
+        map.put('D', 14);
         ksl = new KinoSaal("Test Saal", map);
         vs = new Vorstellung(ksl, Zeitfenster.NACHMITTAG, LocalDate.of(2022, Month.DECEMBER, 13),"TestFilm",20);
 
         List<Ticket> linkedList = new LinkedList<>();
 
         try{
-            linkedList.add(kvw.kaufeTicket(vs,'A',11,30f));
-            linkedList.add(kvw.kaufeTicket(vs,'B',12,33f));
-            linkedList.add(kvw.kaufeTicket(vs,'A',13,100f));
-            linkedList.add(kvw.kaufeTicket(vs,'Z',14,53f));
+            linkedList.add(kvw.kaufeTicket(vs,'A',11,20));
+            linkedList.add(kvw.kaufeTicket(vs,'B',12,30));
+            linkedList.add(kvw.kaufeTicket(vs,'C',13,40));
+            linkedList.add(kvw.kaufeTicket(vs,'D',14,50));
         } catch (Exception e){
             throw new Exception("Fehler beim Kauf!");
         }
