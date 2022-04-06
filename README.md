@@ -1,6 +1,6 @@
 # tdd-kino
 
-part of "advanced software engineering" course at IT Kolleg Imst. Initial project structure with basic source code to learn unit testing (topic area TDD).
+TDD Projekt
 
 ## Getting started
 
